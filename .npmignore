@@ -1,0 +1,7 @@
+/node_modules
+/src
+.gitignore
+pnpm-lock.lock
+.prettierrc.js
+webpack.js
+tsconfig.json
