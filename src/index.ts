@@ -43,7 +43,16 @@ class DependencyAnalysisWebpackPlugin {
       if (obj.isDirectory()) {
         allFiles = [...allFiles, ...this.readFiles(`${path}/${file}`)];
       } else {
-        allFiles.push(this.resolvePath(`${path}/${file}`));
+        // .gitkeep
+        // *.d.ts
+        // .md
+        const match =
+          new RegExp(/^\./).test(file) ||
+          new RegExp(/\.md$/).test(file) ||
+          new RegExp(/\.d.ts$/).test(file);
+        if (!match) {
+          allFiles.push(this.resolvePath(`${path}/${file}`));
+        }
       }
     }
     return allFiles;

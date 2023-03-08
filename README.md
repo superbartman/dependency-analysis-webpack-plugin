@@ -34,3 +34,7 @@ isDelete?: boolean; // default false
 ## Reference
 
 [reference](https://s1.zhuanstatic.com/common/u/article-dependencyAnalysisPlugin.js)
+
+## Bug
+
+[issue](https://github.com/TypeStrong/ts-loader/issues/783)
