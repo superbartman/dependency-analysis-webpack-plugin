@@ -5,9 +5,10 @@
     "baseUrl": ".",
     "declaration": true,
     "esModuleInterop": true,
+    "emitDeclarationOnly":true,
     "moduleResolution": "node",
-    "noEmit": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "outDir": "dist"
   },
   "include": [
     "src",

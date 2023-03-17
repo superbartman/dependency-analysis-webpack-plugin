@@ -16,7 +16,17 @@ module.exports = {
   },
   target: 'node',
   resolve: {
-    extensions: ['.ts'],
+    modules: [
+      path.resolve(__dirname, 'src'),
+      'node_modules',
+    ],
+    extensions: ['.ts', '.js'],
+  },
+  cache: {
+    type: 'filesystem',
+    buildDependencies: {
+      config: [__filename],
+    },
   },
   module: {
     rules: [
@@ -26,11 +36,18 @@ module.exports = {
         include: path.resolve(__dirname, 'src'),
         use: [
           {
-            loader: 'ts-loader',
-            options: { transpileOnly: true }
+            loader: 'swc-loader',
+            options: {
+              jsc: {
+                parser: {
+                  syntax: 'typescript',
+                  tsx: false
+                },
+              }
+            }
           }
         ]
-      },
+      }
     ],
   },
 };
